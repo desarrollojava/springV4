@@ -7,6 +7,7 @@ package com.implementaciones;
 
 import com.control.errores.EjecucionException;
 import com.interfaces.IFisica;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +20,7 @@ public class ProfesorMatematicaFisica extends Profesor{
         super();
         this.iFisica = iFisica;
     }
-    
+    @Autowired
     public ProfesorMatematicaFisica(@Value("1") int numeroAsignaturas, IFisica iFisica){
         super(numeroAsignaturas);
         this.iFisica=iFisica;

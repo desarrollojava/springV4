@@ -22,7 +22,7 @@ public class Investigador implements IInstructor {
     
     //inyeccion automatica por propiedad (podemos eliminar el metodo set)
     @Autowired 
-    @Qualifier("idBeanDepInvestigacion")//busca cual es el bean que queremos
+    @Qualifier("idBeanDepInvestigacionImpl")//busca cual es el bean que queremos
     private IConsejoInvestigacion iConsejoInvestigacion;
 
     public Investigador() {

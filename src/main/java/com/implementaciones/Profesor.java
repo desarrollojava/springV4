@@ -24,7 +24,7 @@ public class Profesor implements IInstructor{
     
     @Override
     public void ejecutar() throws EjecucionException {
-        System.out.println("enseño:  "+numeroAsignaturas+ "del tema de matematica");
+        System.out.println("enseño:  "+numeroAsignaturas+ " temas de la asignatura de matematica");
         
     }
 

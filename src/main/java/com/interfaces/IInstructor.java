@@ -10,4 +10,5 @@ import com.control.errores.EjecucionException;
 
 public interface IInstructor {
     public void ejecutar() throws EjecucionException;
+    
 }
