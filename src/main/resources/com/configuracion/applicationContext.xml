@@ -22,5 +22,19 @@ http://www.springframework.org/schema/aop/spring-aop.xsd"
         </property>
         
     </bean>
+    
+    
+    <aop:config>
+        <aop:aspect id="idAspect" ref="estudiante"/>
+    
+        <aop:poincut expression="execution(* com.implementaciones.Profesor.ejecutar(..))" id="clases"/>
+        <aop:before poincut-ref="clases" method="sentarse" />
+        <aop:before poincut-ref="clases" method="apagarcelulares" />
+        <aop:after-returning poincut-ref="clases"  method="realizarPreguntas" />
+        <aop:after-throwing />
+        
+     
+    </aop:config>
+    
 
 </beans>
