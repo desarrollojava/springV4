@@ -7,6 +7,7 @@ package com.test;
 
 import com.implementaciones.Profesor;
 import com.interfaces.IInstructor;
+import com.modular.Modulo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
@@ -17,29 +18,26 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.ContextConfiguration;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:/com/configuracion/applicationContext.xml"})
 public class TestProfesor {
-    
-    private static Log Logger =LogFactory.getLog(TestProfesor.class);
-    
+
+    private static Log Logger = LogFactory.getLog(TestProfesor.class);
+
     @Autowired
-    @Qualifier("idBeanProfesor")
-    private IInstructor profesorMatematica;
-    
+    @Qualifier("modulo")
+    private Modulo modulo;
+
     @Test
-    public void testprofesor(){
-        Logger.info("Inicio de enseñar matematica");
-        int asignaturas = 8;
-        profesorMatematica.ejecutar();
-        assertEquals(asignaturas, ((Profesor) profesorMatematica).getNumeroAsignaturas());
-        Logger.info("Fin de enseñar");
-        
-        
-        
+    public void testprofesor() {
+        modulo.idBeanInvestigador.ejecutar();
+        modulo.idBeanProfesor.ejecutar();
+//        Logger.info("Inicio de enseñar matematica");
+//        int asignaturas = 8;
+//        profesorMatematica.ejecutar();
+//        assertEquals(asignaturas, ((Profesor) profesorMatematica).getNumeroAsignaturas());
+//        Logger.info("Fin de enseñar");
+
     }
-    
-    
-    
+
 }
