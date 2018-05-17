@@ -11,4 +11,10 @@ import com.control.errores.EjecucionException;
 public interface IInstructor {
     public void ejecutar() throws EjecucionException;
     
+    public void enviarTareas() throws EjecucionException;
+    
+    public void enviarCorreos() throws EjecucionException;
+    
+    public void enviarNotas() throws EjecucionException;
+    
 }

@@ -12,19 +12,16 @@ import org.springframework.stereotype.Component;
 
 @Component()
 public class Modulo {
-    
+
     @Autowired
     @Qualifier("idBeanInvestigador")
     public IInstructor idBeanInvestigador;
-    
-     @Autowired
+
+    @Autowired
     @Qualifier("idBeanProfesor")
     public IInstructor idBeanProfesor;
 
     public Modulo() {
     }
-    
-    
-    
-    
+
 }

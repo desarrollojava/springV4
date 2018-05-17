@@ -10,22 +10,27 @@ import com.interfaces.IInstructor;
 import org.springframework.stereotype.Component;
 
 @Component("idBeanProfesor")
-public class Profesor implements IInstructor{
-    
-    private int numeroAsignaturas=8;
+public class Profesor implements IInstructor {
+
+    private int numeroAsignaturas = 8;
 
     public Profesor() {
     }
-    
-     public Profesor(int numeroAsignaturas) {
-         this.numeroAsignaturas=numeroAsignaturas;
+
+    public Profesor(int numeroAsignaturas) {
+        this.numeroAsignaturas = numeroAsignaturas;
     }
-    
-    
+
     @Override
     public void ejecutar() throws EjecucionException {
-        System.out.println("enseño:  "+numeroAsignaturas+ " temas de la asignatura de matematica");
-        
+        System.out.println("enseño:  " + numeroAsignaturas + " temas de la asignatura de matematica");
+
+    }
+
+    @Override
+    public void enviarTareas() {
+        System.out.println("se envia tareas de la asignatura");
+
     }
 
     public int getNumeroAsignaturas() {
@@ -35,6 +40,15 @@ public class Profesor implements IInstructor{
     public void setNumeroAsignaturas(int numeroAsignaturas) {
         this.numeroAsignaturas = numeroAsignaturas;
     }
-    
-    
+
+    @Override
+    public void enviarCorreos() throws EjecucionException {
+        System.out.println("se envia correos");
+    }
+
+    @Override
+    public void enviarNotas() throws EjecucionException {
+        System.out.println("se envia notas");
+    }
+
 }

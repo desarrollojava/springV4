@@ -50,6 +50,21 @@ public class Investigador implements IInstructor {
         this.iConsejoInvestigacion = iConsejoInvestigacion;
     }
 
+    @Override
+    public void enviarTareas() throws EjecucionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void enviarCorreos() throws EjecucionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void enviarNotas() throws EjecucionException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
    
 
 }

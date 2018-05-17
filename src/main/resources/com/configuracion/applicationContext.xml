@@ -7,7 +7,7 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc" 
        xmlns:p="http://www.springframework.org/schema/p" 
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
-http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/beans/spring-beans.xsd 
  http://www.springframework.org/schema/tx 
  http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/context 
@@ -30,15 +30,52 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd"
     </bean>
     
     
+    <!--<aop:config>
+        <aop:aspect id="idAspect" ref="estudiante">
+    
+            <aop:pointcut expression="execution(* com.implementaciones.Profesor.ejecutar(..))" id="idPoincut"/>
+            <aop:before pointcut-ref="idPoincut" method="sentarse" />
+            <aop:before pointcut-ref="idPoincut" method="apagarcelulares" />
+            <aop:after-returning pointcut-ref="idPoincut"  method="realizarPreguntas" />
+            <aop:after-throwing pointcut-ref="idPoincut" method="salirDelAula"/>
+        </aop:aspect>
+    </aop:config>-->
+    <!--ejercicio con around
     <aop:config>
-        <aop:aspect id="idAspect" ref="estudiante"/>
+        <aop:aspect id="idAspect" ref="estudiante">
     
-        <aop:poincut expression="execution(* com.implementaciones.Profesor.ejecutar(..))" id="idPoincut"/>
-        <aop:before poincut-ref="idPoincut" method="sentarse" />
-        <aop:before poincut-ref="idPoincut" method="apagarcelulares" />
-        <aop:after-returning poincut-ref="idPoincut"  method="realizarPreguntas" />
-        <aop:after-throwing poincut-ref="idPoincut" method="salirDelAula"/>
+            <aop:pointcut expression="execution(* com.implementaciones.Profesor.ejecutar(..))" id="idPointcut"/>
+            <aop:around pointcut-ref="idPointcut"  method="monitorearClasesMatematica"/>
+        </aop:aspect>
+    </aop:config>-->
+    
+    <!--ejercicio con around para muchas funciones en una clase
+    <aop:config>
+        <aop:aspect id="idAspect" ref="estudiante">
+    
+            <aop:pointcut expression="execution(* com.implementaciones.Profesor.*(..))" id="idPointcut"/>
+            <aop:around pointcut-ref="idPointcut"  method="monitorearClasesMatematica"/>
+        </aop:aspect>
+    </aop:config>-->
+    
+    
+    <!--ejercicio con around para muchas funciones dentro de un paquete
+    <aop:config>
+        <aop:aspect id="idAspect" ref="estudiante">
+    
+            <aop:pointcut expression="execution(* com.implementaciones.*.*(..))" id="idPointcut"/>
+            <aop:around pointcut-ref="idPointcut"  method="monitorearClasesMatematica"/>
+        </aop:aspect>
+    </aop:config>-->
+    
+    
+    <!--ejercicio con around para muchas funciones dfiltros con nombre-->
+    <aop:config>
+        <aop:aspect id="idAspect" ref="estudiante">
+    
+            <aop:pointcut expression="execution(* com.implementaciones.Profesor.enviarC*(..))" id="idPointcut"/>
+            <aop:around pointcut-ref="idPointcut"  method="monitorearClasesMatematica"/>
+        </aop:aspect>
     </aop:config>
-    
 
 </beans>

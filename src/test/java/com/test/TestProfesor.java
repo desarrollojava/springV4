@@ -12,6 +12,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,9 +30,15 @@ public class TestProfesor {
     private Modulo modulo;
 
     @Test
+//    @Ignore
     public void testprofesor() {
-        modulo.idBeanInvestigador.ejecutar();
-        modulo.idBeanProfesor.ejecutar();
+//        modulo.idBeanInvestigador.ejecutar();
+        modulo.idBeanProfesor.enviarCorreos();
+        
+//        System.out.println("fin de ejecutar");
+//        
+//        modulo.idBeanInvestigador.ejecutar();
+        
 //        Logger.info("Inicio de enseñar matematica");
 //        int asignaturas = 8;
 //        profesorMatematica.ejecutar();
@@ -39,5 +46,7 @@ public class TestProfesor {
 //        Logger.info("Fin de enseñar");
 
     }
+    
+    
 
 }
