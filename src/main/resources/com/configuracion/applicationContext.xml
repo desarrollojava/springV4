@@ -2,14 +2,20 @@
 <beans xmlns="http://www.springframework.org/schema/beans" 
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
        xmlns:aop="http://www.springframework.org/schema/aop" 
+       xmlns:tx="http://www.springframework.org/schema/tx" 
        xmlns:context="http://www.springframework.org/schema/context" 
+       xmlns:mvc="http://www.springframework.org/schema/mvc" 
        xmlns:p="http://www.springframework.org/schema/p" 
        xsi:schemaLocation="http://www.springframework.org/schema/beans 
-http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/tx 
+ http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/context 
 http://www.springframework.org/schema/context/spring-context.xsd 
 http://www.springframework.org/schema/aop 
-http://www.springframework.org/schema/aop/spring-aop.xsd" 
+http://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd"
 > 
     
     <context:component-scan base-package="com"  />
@@ -27,13 +33,11 @@ http://www.springframework.org/schema/aop/spring-aop.xsd"
     <aop:config>
         <aop:aspect id="idAspect" ref="estudiante"/>
     
-        <aop:poincut expression="execution(* com.implementaciones.Profesor.ejecutar(..))" id="clases"/>
-        <aop:before poincut-ref="clases" method="sentarse" />
-        <aop:before poincut-ref="clases" method="apagarcelulares" />
-        <aop:after-returning poincut-ref="clases"  method="realizarPreguntas" />
-        <aop:after-throwing />
-        
-     
+        <aop:poincut expression="execution(* com.implementaciones.Profesor.ejecutar(..))" id="idPoincut"/>
+        <aop:before poincut-ref="idPoincut" method="sentarse" />
+        <aop:before poincut-ref="idPoincut" method="apagarcelulares" />
+        <aop:after-returning poincut-ref="idPoincut"  method="realizarPreguntas" />
+        <aop:after-throwing poincut-ref="idPoincut" method="salirDelAula"/>
     </aop:config>
     
 
